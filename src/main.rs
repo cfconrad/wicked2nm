@@ -21,8 +21,8 @@ use serde::Serialize;
 use simplelog::ConfigBuilder;
 use std::path::PathBuf;
 use std::process::{ExitCode, Termination};
+use std::sync::OnceLock;
 use thiserror::Error;
-use tokio::sync::OnceCell;
 
 use crate::interface::Interface;
 use crate::netconfig::Netconfig;
@@ -254,7 +254,7 @@ impl Default for MigrationSettings {
     }
 }
 
-static MIGRATION_SETTINGS: OnceCell<MigrationSettings> = OnceCell::const_new();
+static MIGRATION_SETTINGS: OnceLock<MigrationSettings> = OnceLock::new();
 
 #[tokio::main]
 async fn main() -> CliResult {
