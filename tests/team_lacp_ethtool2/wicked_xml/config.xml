@@ -21,7 +21,7 @@
   </control>
   <team>
     <runner name="lacp">
-      <active>false</active>
+      <active>true</active>
       <fast_rate>true</fast_rate>
       <sys_prio>100</sys_prio>
       <min_ports>2</min_ports>
